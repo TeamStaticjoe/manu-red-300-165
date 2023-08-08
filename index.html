@@ -41,6 +41,14 @@
 				right: 25px;
 			}
 
+			.button {
+				position: absolute;
+				z-index: 20;
+				bottom: 40px;
+				right: 40px;
+				opacity: 0;
+			}
+
 			.mat {
 				width: 300px;
 				height: 165px;
@@ -71,6 +79,7 @@
 				alt=""
 			/>
 			<img class="lock-up" src="assets/manu-red-300-165-lock-up.png" alt="" />
+			<img class="button" src="assets/manu-red-300-165-button.png" alt="" />
 			<img class="mat" src="assets/manu-red-300-165-mat.png" alt="" />
 			<img class="image" src="assets/manu-red-300-165-image.jpg" alt="" />
 		</a>
@@ -84,7 +93,7 @@
 				".sd-manu-red-300-165 .bottom-text"
 			)
 			const lockUp = document.querySelector(".sd-manu-red-300-165 .lock-up")
-
+			const button = document.querySelector(".sd-manu-red-300-165 .button")
 			const tl = gsap.timeline()
 
 			tl.set(mat, { scaleX: "300%", scaleY: "300%" })
@@ -116,7 +125,12 @@
 				)
 				.to(topText, { x: 209, duration: 1, ease: "power1.out" }, "-=1")
 				.to(bottomText, { x: -327, duration: 1, ease: "power1.inOut" }, "<.125")
-				.to(lockUp, { y: 50, duration: 0.5, ease: "power1.out" }, "-=.25")
+				.to(
+					button,
+					{ autoAlpha: 1, duration: 0.5, ease: "power1.inOut" },
+					"<.75"
+				)
+				.to(lockUp, { y: 40, duration: 0.5, ease: "power1.out" }, "-=.65")
 		}
 		sdManURed300x165Animate()
 	</script>
